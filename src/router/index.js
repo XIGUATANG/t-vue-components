@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 const PopupTest = () => import('../components/popup-radio/index.vue')
+const AlertTest = () => import('../example/alert.vue')
 
 Vue.use(VueRouter)
 export default new VueRouter({
@@ -18,6 +19,11 @@ export default new VueRouter({
       path: '/popuptest',
       name: 'popuptest',
       component: PopupTest
+    },
+    {
+      path: '/dialog',
+      name: 'dialog',
+      component: AlertTest
     }
   ]
 })
