@@ -11,7 +11,7 @@
 I recommed yarn instead of npm
 yarn
 
-# serve with hot reload at ip+
+# serve with hot reload at ip:7770
 
 
 # build for production with minificat

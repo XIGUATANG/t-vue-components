@@ -10,6 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const devMode = process.env.NODE_ENV !== 'production'
 
 const env = require('../config/prod.env')
 
@@ -34,7 +35,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
           chunks: 'initial',
-          name: 'vendors',
+          name: 'vendors'
         },
         'async-vendors': {
           test: /[\\/]node_modules[\\/]/,
@@ -47,17 +48,16 @@ const webpackConfig = merge(baseWebpackConfig, {
     runtimeChunk: { name: 'runtime' }
   },
   plugins: [
-    new webpack.NamedChunksPlugin(chunk => chunk.name || 'faceless-chunk'),
+    new webpack.NamedChunksPlugin(chunk => chunk.name || chunk.id),
     new MiniCssExtractPlugin({
-      filename: 'style.css'
+      filename: '[name].[hash].css',
+      chunkFilename: '[id].[hash].css'
     }),
     // extract css into its own file
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
-      cssProcessorOptions: config.build.productionSourceMap
-        ? { safe: true, map: { inline: false } }
-        : { safe: true }
+      cssProcessorOptions: config.build.productionSourceMap ? { safe: true, map: { inline: false } } : { safe: true }
     }),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
@@ -100,11 +100,7 @@ if (config.build.productionGzip) {
     new CompressionWebpackPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',
-      test: new RegExp(
-        '\\.(' +
-        config.build.productionGzipExtensions.join('|') +
-        ')$'
-      ),
+      test: new RegExp('\\.(' + config.build.productionGzipExtensions.join('|') + ')$'),
       threshold: 10240,
       minRatio: 0.8
     })
