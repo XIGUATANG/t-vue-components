@@ -29,6 +29,7 @@ a {
   right: 0;
   left: 0;
   bottom: 0;
+  -webkit-tap-highlight-color: transparent;
   background: rgba(0, 0, 0, 0.6);
 }
 

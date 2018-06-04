@@ -17,7 +17,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 * {
   box-sizing: border-box;
 }
@@ -48,5 +48,8 @@ button {
   appearance: none;
   -webkit-appearance: none;
   border: none;
+  &:focus {
+    outline: 0;
+  }
 }
 </style>

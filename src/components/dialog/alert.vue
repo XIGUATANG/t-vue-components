@@ -1,6 +1,6 @@
 <template>
   <div class="t-alert">
-    <TDialog v-model="showValue">
+    <TDialog :closeOnClikMask="false" v-model="showValue">
       <div class="weui-dialog__hd">
         <strong class="weui-dialog__title">{{title}}</strong>
       </div>
@@ -21,13 +21,9 @@ export default {
         return this.value
       },
       set (val) {
-        this.$emit('input', val)
+        this.$emit('change', val)
       }
     }
-  },
-  model: {
-    prop: 'value',
-    event: 'input'
   },
   props: {
     title: {
@@ -51,8 +47,17 @@ export default {
   },
   methods: {
     close () {
-      debugger
       this.$emit('change', false)
+    }
+  },
+  watch: {
+    value: {
+      handler (val) {
+        if (val) {
+          return void this.$emit('onOpen')
+        }
+        this.$emit('onClose')
+      },
     }
   }
 }
