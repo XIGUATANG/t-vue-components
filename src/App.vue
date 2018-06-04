@@ -2,18 +2,14 @@
   <div id="app">
     <router-link class="router-link" to="/popuptest">popupradio</router-link>
     <router-link class="router-link" to="/dialog">dialog</router-link>
-    <router-view></router-view>
+    <router-view class="router-view"></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 
@@ -51,5 +47,8 @@ button {
   &:focus {
     outline: 0;
   }
+}
+.router-view {
+  margin-top: 20px;
 }
 </style>

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-const PopupTest = () => import('../components/popup-radio/index.vue')
+const PopupTest = () => import('../example/popupradio.vue')
 const AlertTest = () => import('../example/alert.vue')
 
 Vue.use(VueRouter)

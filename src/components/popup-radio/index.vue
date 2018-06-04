@@ -1,9 +1,9 @@
 <template>
   <div class="test">
-    <button @click="popupShow=true">试一试</button>
+    <Cell @click.native="popupShow=true" :value="model" :placeholder="placeholder" :title="title" isShowArrow></Cell>
     <Popup v-model="popupShow">
-      <PopupHeader title="标题"></PopupHeader>
-      <Radio v-model="model" @select="popupShow=false"></Radio>
+      <PopupHeader :title="popTitle"></PopupHeader>
+      <Radio v-model="model" :options="options" @select="popupShow=false"></Radio>
     </Popup>
   </div>
 </template>
@@ -12,6 +12,7 @@
 import PopupHeader from '../popup-header/index.vue'
 import Radio from '../radio/index.vue'
 import Popup from '../popup/index.vue'
+import Cell from '../cell/index.vue'
 export default {
   name: 'PopupTest',
   data () {
@@ -20,9 +21,24 @@ export default {
       model: '',
     }
   },
-  components: { Popup, PopupHeader, Radio }
+  components: { Popup, PopupHeader, Radio, Cell },
+  props: {
+    popTitle: String,
+    title: String,
+    value: {
+      type: [String, Number],
+    },
+    options: {
+      type: Array,
+      required: true,
+    },
+    placeholder: String,
+  }
 }
 </script>
 
-<style>
+<style lang="scss">
+.t-cell {
+  background-color: #fff;
+}
 </style>

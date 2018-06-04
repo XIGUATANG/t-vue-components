@@ -26,7 +26,7 @@ export default {
     showAlert () {
       this.$Alert({
         title: '重要提示',
-        content: '我跟你说，我最可爱，不接受反驳',
+        content: '我跟你说，我最可爱不接受反驳',
         buttonText: '知道了'
       })
     }

@@ -17,24 +17,7 @@
 export default {
   props: {
     options: {
-      type: Array,
-      default () {
-        return [
-          {
-            label: '被禁用',
-            value: '值F',
-            disabled: true
-          },
-          {
-            label: '选项A',
-            value: '值A'
-          },
-          {
-            label: '选项B',
-            value: '值B'
-          }
-        ]
-      },
+      type: Array
     },
     value: {
       type: [String, Number]

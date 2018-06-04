@@ -5,7 +5,7 @@ import 'lib-flexible'
 import './style/weui.css'
 Vue.config.productionTip = false
 import FastClick from 'fastclick'
-import AlertPlugin from './components/dialog'
+import AlertPlugin from './components/dialog/alert.js'
 
 Vue.prototype.$Alert = AlertPlugin
 //在created或monted生命周期中将FastClick绑定到body

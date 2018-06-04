@@ -10,14 +10,16 @@
 <script>
 import PopupHeader from '../popup-header/index.vue'
 import Popup from './index.vue'
+import Cell from '../components/cell/index.vue'
 export default {
   name: 'PopupTest',
   data () {
     return {
       popupShow: false,
+      radioValue: '',
     }
   },
-  components: { Popup, PopupHeader }
+  components: { Popup, PopupHeader, Cell }
 }
 </script>
 

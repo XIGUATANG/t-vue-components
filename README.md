@@ -4,6 +4,8 @@
 
 ## Build Setup
 
+特别提示： 本组件库仅供个人使用，仅供参考，只满足当前公司 ui 已经功能需求
+
 ```bash
 # install dependencies
 I recommed yarn instead of npm
