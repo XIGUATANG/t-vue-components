@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <router-link class="router-link" to="/popuptest">popupradio</router-link>
-    <router-link class="router-link" to="/dialog">dialog</router-link>
+    <router-link class="router-link" to="/popupradio">popupradio</router-link>
+    <router-link class="router-link" to="/alert">alert</router-link>
+    <router-link class="router-link" to="/confirm">confirm</router-link>
     <router-view class="router-view"></router-view>
   </div>
 </template>

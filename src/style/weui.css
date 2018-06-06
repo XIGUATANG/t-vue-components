@@ -119,3 +119,26 @@ a {
   -webkit-transform: scaleY(0.5);
   transform: scaleY(0.5);
 }
+
+.weui-dialog__btn_default {
+  color: #353535;
+}
+
+.weui-dialog__btn:after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-left: 1px solid #d5d5d6;
+  color: #d5d5d6;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5);
+}
+
+.weui-dialog__btn:first-child:after {
+  display: none;
+}

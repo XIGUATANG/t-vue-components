@@ -2,10 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 const PopupTest = () => import('../example/popupradio.vue')
 const AlertTest = () => import('../example/alert.vue')
+const isProd = process.env.NODE_ENV === 'production'
 
 Vue.use(VueRouter)
 export default new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   base: '/',
   scrollBehavior: () => ({
     y: 0
@@ -13,17 +14,22 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
-      redirect: '/popuptest'
+      redirect: '/popupradio'
     },
     {
-      path: '/popuptest',
-      name: 'popuptest',
+      path: '/popupradio',
+      name: 'popupradio',
       component: PopupTest
     },
     {
-      path: '/dialog',
-      name: 'dialog',
+      path: '/alert',
+      name: 'alert',
       component: AlertTest
+    },
+    {
+      path: '/confirm',
+      name: 'confirm',
+      component: () => import('../example/confirm.vue')
     }
   ]
 })

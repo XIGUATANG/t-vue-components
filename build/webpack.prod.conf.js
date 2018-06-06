@@ -9,7 +9,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
 
 const env = require('../config/prod.env')
@@ -50,8 +49,8 @@ const webpackConfig = merge(baseWebpackConfig, {
   plugins: [
     new webpack.NamedChunksPlugin(chunk => chunk.name || chunk.id),
     new MiniCssExtractPlugin({
-      filename: '[name].[hash].css',
-      chunkFilename: '[id].[hash].css'
+      filename: utils.assetsPath('css/[name].[hash].css'),
+      chunkFilename: utils.assetsPath('css/[id].[hash].css')
     }),
     // extract css into its own file
     // Compress extracted CSS. We are using this plugin so that possible
