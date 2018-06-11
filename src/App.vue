@@ -3,6 +3,9 @@
     <router-link class="router-link" to="/popupradio">popupradio</router-link>
     <router-link class="router-link" to="/alert">alert</router-link>
     <router-link class="router-link" to="/confirm">confirm</router-link>
+    <router-link class="router-link" to="/switch">switch</router-link>
+    <router-link class="router-link" to="/lineswitch">lineSwitch</router-link>
+    <router-link class="router-link" to="/tabchoose">tabChoose</router-link>
     <router-view class="router-view"></router-view>
   </div>
 </template>
@@ -51,5 +54,6 @@ button {
 }
 .router-view {
   margin-top: 20px;
+  background-color: #fff;
 }
 </style>

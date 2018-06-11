@@ -6,9 +6,13 @@ import './style/weui.css'
 Vue.config.productionTip = false
 import FastClick from 'fastclick'
 import AlertPlugin from './components/dialog/alert.js'
+import ConfirmPlugin from './components/dialog/Confirm.js'
+import './style/common.scss'
 
 Vue.prototype.$Alert = AlertPlugin
-//在created或monted生命周期中将FastClick绑定到body
+Vue.prototype.$Confirm = ConfirmPlugin
+
+
 FastClick.attach(document.body)
 
 /* eslint-disable no-new */

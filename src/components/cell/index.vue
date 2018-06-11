@@ -1,8 +1,10 @@
 <template>
   <div class="t-cell">
-    <span class="cell-title">{{title}}</span>
-    <span v-show="!value" class="cell-placeholder">{{placeholder}}</span>
+    <slot name="title">
+      <span class="cell-title">{{title}}</span>
+    </slot>
     <slot>
+      <span v-show="!value" class="cell-placeholder">{{placeholder}}</span>
       <span v-show="value" class="cell-value">{{value}}</span>
     </slot>
     <span v-if="isShowArrow" class="cell-arrow"></span>
@@ -29,7 +31,7 @@ export default {
   display: flex;
   align-items: center;
   position: relative;
-  border-top: 1px solid #e4e4e4;
+  border-top: 1px solid #e4e4e4; /*no*/
   min-height: 88px;
   padding: 0 30px;
   font-size: 28px;

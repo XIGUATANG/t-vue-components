@@ -63,7 +63,7 @@ export default {
   height: 88px;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid #e4e4e4;
+  border-top: 1px solid #e4e4e4; /*no*/
   font-size: 28px;
   color: #333;
   -webkit-tap-highlight-color: transparent;

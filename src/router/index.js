@@ -30,6 +30,21 @@ export default new VueRouter({
       path: '/confirm',
       name: 'confirm',
       component: () => import('../example/confirm.vue')
+    },
+    {
+      path: '/switch',
+      name: 'switch',
+      component: () => import('../example/switch.vue')
+    },
+    {
+      path: '/lineswitch',
+      name: 'lineSwitch',
+      component: () => import('../example/line-switch.vue')
+    },
+    {
+      path: '/tabchoose',
+      name: 'tabChoose',
+      component: () => import('../example/tab-choose.vue')
     }
   ]
 })

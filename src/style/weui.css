@@ -113,6 +113,7 @@ a {
   right: 0;
   height: 1px;
   border-top: 1px solid #d5d5d6;
+  /*no*/
   color: #d5d5d6;
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
@@ -132,6 +133,7 @@ a {
   width: 1px;
   bottom: 0;
   border-left: 1px solid #d5d5d6;
+  /*no*/
   color: #d5d5d6;
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;

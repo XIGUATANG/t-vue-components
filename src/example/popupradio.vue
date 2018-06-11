@@ -1,5 +1,5 @@
 <template>
-  <PopupRadio :options="options" title="选择吧" popTitle="选项标题" placeholder="请选择你的看法"></PopupRadio>
+  <PopupRadio :options="options" v-model="radioValue" title="选择吧" popTitle="选项标题" placeholder="请选择你的看法"></PopupRadio>
 </template>
 
 <script>
@@ -9,6 +9,7 @@ export default {
   components: { PopupRadio },
   data () {
     return {
+      radioValue: 'yeye',
       options: [
         {
           label: '被禁用',

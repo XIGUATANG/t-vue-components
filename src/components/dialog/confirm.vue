@@ -55,11 +55,11 @@ export default {
       this.$emit('change', false)
     },
     confirm () {
-      this.$emit('confirm')
+      this.$emit('onConfirm')
       this.close()
     },
     cancel () {
-      this.$emit('cancel')
+      this.$emit('onCancel')
       this.close()
     }
   },
