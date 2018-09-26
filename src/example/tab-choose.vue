@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import TabChoose from '../components/tab-choose/index.vue'
+import TabChoose from '../components/TabChoose/index.vue'
 export default {
   components: { TabChoose },
   data () {

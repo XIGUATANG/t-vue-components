@@ -12,11 +12,9 @@ import './style/common.scss'
 Vue.prototype.$Alert = AlertPlugin
 Vue.prototype.$Confirm = ConfirmPlugin
 
-
 FastClick.attach(document.body)
-
 /* eslint-disable no-new */
-new Vue({
+window.app = new Vue({
   el: '#app',
   router,
   render: h => h(App)

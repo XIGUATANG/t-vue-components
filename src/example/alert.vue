@@ -11,6 +11,9 @@ import Alert from '../components/dialog/alert.vue'
 export default {
   name: 'DialogTest',
   components: { Alert },
+  created () {
+    console.log('created')
+  },
   data () {
     return {
       alertShow: false,

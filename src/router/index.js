@@ -22,7 +22,7 @@ export default new VueRouter({
       component: PopupTest
     },
     {
-      path: '/alert',
+      path: '/alert/:id',
       name: 'alert',
       component: AlertTest
     },
@@ -45,6 +45,11 @@ export default new VueRouter({
       path: '/tabchoose',
       name: 'tabChoose',
       component: () => import('../example/tab-choose.vue')
+    },
+    {
+      path: '/tab',
+      name: 'tab',
+      component: () => import('../example/Tab.vue')
     }
   ]
 })
