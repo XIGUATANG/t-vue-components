@@ -22,7 +22,7 @@ export default new VueRouter({
       component: PopupTest
     },
     {
-      path: '/alert/:id',
+      path: '/alert',
       name: 'alert',
       component: AlertTest
     },

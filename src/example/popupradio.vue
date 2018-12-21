@@ -1,5 +1,12 @@
 <template>
-  <PopupRadio :options="options" v-model="radioValue" title="选择吧" popTitle="选项标题" placeholder="请选择你的看法"></PopupRadio>
+  <div>
+    <PopupRadio :options="options" v-model="radioValue" title="选择吧" popTitle="选项标题" placeholder="请选择你的看法"></PopupRadio>
+    <li v-show="visible" v-for="item in  list" :key="item">
+      <span v-once>{{bar}}</span>
+    </li>
+    <button @click="visible=!visible">1234</button>
+  </div>
+
 </template>
 
 <script>
@@ -7,8 +14,19 @@ import PopupRadio from '../components/popup-radio/index.vue'
 export default {
   name: 'PopRadioTest',
   components: { PopupRadio },
+  created () {
+    console.log('created')
+  },
+  beforeMount () {
+    console.log('before')
+  },
+  mounted () {
+    console.log('mounted')
+  },
   data () {
     return {
+      visible: true,
+      list: [1, 2, 3, 4, 5],
       radioValue: 'yeye',
       options: [
         {
@@ -26,6 +44,18 @@ export default {
           value: 'hahah'
         }
       ]
+    }
+  },
+  computed: {
+    bar () {
+      console.log('computed')
+      return '123'
+    }
+  },
+  methods: {
+    it (n) {
+      console.log(1)
+      return n + ''
     }
   }
 

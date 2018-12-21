@@ -8,6 +8,7 @@
     <router-link class="router-link" to="/tabchoose">tabChoose</router-link>
     <router-link class="router-link" to="/tab">Tab</router-link>
     <router-view class="router-view" :key="$route.fullPath"></router-view>
+  
   </div>
 </template>
 
@@ -15,6 +16,18 @@
 
 export default {
   name: 'App',
+ 
+  data () {
+    return {
+      
+    }
+  },
+  methods: {
+    it (n) {
+      console.log(1)
+      return n + ''
+    }
+  }
 }
 </script>
 

@@ -43,14 +43,15 @@ a {
 }
 
 .weui-dialog {
-  position: fixed;
+  position: absolute;
+  display: table;
   z-index: 5000;
   width: 80%;
   max-width: 600px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   background-color: #ffffff;
   text-align: center;
   border-radius: 6px;
