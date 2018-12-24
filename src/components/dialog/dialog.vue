@@ -1,16 +1,26 @@
 <template>
-
-  <div v-transfer-dom class="dialog-wrappper">
-    <transition name="t-mask">
-      <div v-show="value" ref="mask" @click="maskClick" class="weui-mask"></div>
-    </transition>
-    <transition name="t-dialog">
-      <div v-show="value" ref="dialog" class="weui-dialog">
-        <slot></slot>
+  <div
+    v-transfer-dom
+    class="dialog-wrappper"
+  >
+    <Transition name="t-mask">
+      <div
+        v-show="value"
+        ref="mask"
+        class="weui-mask"
+        @click="maskClick"
+      />
+    </Transition>
+    <Transition name="t-dialog">
+      <div
+        v-show="value"
+        ref="dialog"
+        class="weui-dialog"
+      >
+        <slot />
       </div>
-    </transition>
+    </Transition>
   </div>
-
 </template>
 <script>
 import passiveSupported from '../../libs/passive_supported.js'
@@ -19,6 +29,7 @@ import TransferDom from '../../directives/transfer-dom'
 export default {
   name: 'Dialog',
   directives: { TransferDom },
+  mixins: [preventBodyScroll],
   props: {
     value: Boolean,
     closeOnClikMask: {
@@ -26,44 +37,26 @@ export default {
       default: true
     }
   },
-  mixins: [preventBodyScroll],
+  watch: {
+    value (val) {
+      if (val) {
+        this.addModalClassName()
+        this.$emit('on-open')
+      } else {
+        this.removeModalClassName()
+        this.$emit('on-close')
+      }
+    }
+  },
   methods: {
-    maskClick() {
+    maskClick () {
       console.log('maskClick')
       if (this.closeOnClikMask) {
         this.$emit('input', false)
       }
     }
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.$refs.mask.addEventListener(
-        'touchmove',
-        function(event) {
-          event.preventDefault()
-          event.stopPropagation()
-        },
-        passiveSupported ? { passive: false } : false
-      )
-      this.$refs.dialog.addEventListener(
-        'touchmove',
-        function(event) {
-          event.preventDefault()
-          event.stopPropagation()
-        },
-        passiveSupported ? { passive: false } : false
-      )
-    })
-  },
-  watch: {
-    value(val) {
-      if (val) {
-        this.doOpen()
-      } else {
-        this.doClose()
-      }
-    }
-  }
+  mounted () { }
 }
 </script>
 

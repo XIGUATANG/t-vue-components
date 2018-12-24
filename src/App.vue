@@ -1,14 +1,51 @@
 <template>
   <div id="app">
-    <router-link class="router-link" to="/popupradio">popupradio</router-link>
-    <router-link class="router-link" to="/alert">alert</router-link>
-    <router-link class="router-link" to="/confirm">confirm</router-link>
-    <router-link class="router-link" to="/switch">switch</router-link>
-    <router-link class="router-link" to="/lineswitch">lineSwitch</router-link>
-    <router-link class="router-link" to="/tabchoose">tabChoose</router-link>
-    <router-link class="router-link" to="/tab">Tab</router-link>
-    <router-view class="router-view" :key="$route.fullPath"></router-view>
-  
+    <router-link
+      class="router-link"
+      to="/popupradio"
+    >
+      popupradio
+    </router-link>
+    <router-link
+      class="router-link"
+      to="/alert"
+    >
+      alert
+    </router-link>
+    <router-link
+      class="router-link"
+      to="/confirm"
+    >
+      confirm
+    </router-link>
+    <router-link
+      class="router-link"
+      to="/switch"
+    >
+      switch
+    </router-link>
+    <router-link
+      class="router-link"
+      to="/lineswitch"
+    >
+      lineSwitch
+    </router-link>
+    <router-link
+      class="router-link"
+      to="/tabchoose"
+    >
+      tabChoose
+    </router-link>
+    <router-link
+      class="router-link"
+      to="/tab"
+    >
+      Tab
+    </router-link>
+    <router-view
+      :key="$route.fullPath"
+      class="router-view"
+    />
   </div>
 </template>
 
@@ -16,10 +53,10 @@
 
 export default {
   name: 'App',
- 
+
   data () {
     return {
-      
+
     }
   },
   methods: {

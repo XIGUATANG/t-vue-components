@@ -1,59 +1,32 @@
-let scrollBarWidth
-const getScrollBarWidth = () => {
-  if (scrollBarWidth !== undefined) return scrollBarWidth
+import dom from '../libs/dom'
 
-  const outer = document.createElement('div')
-  outer.style.visibility = 'hidden'
-  outer.style.width = '100px'
-  outer.style.position = 'absolute'
-  outer.style.top = '-9999px'
-  document.body.appendChild(outer)
-
-  const widthNoScroll = outer.offsetWidth
-  outer.style.overflow = 'scroll'
-
-  const inner = document.createElement('div')
-  inner.style.width = '100%'
-  outer.appendChild(inner)
-
-  const widthWithScroll = inner.offsetWidth
-  outer.parentNode.removeChild(outer)
-
-  return widthNoScroll - widthWithScroll
-}
+const BODY_CLASS_NAME = 't-modal-open'
 
 export default {
-  data() {
-    return {
-      bodyOverflow: null,
-      bodyPaddingRight: null
+  methods: {
+    // some plugin may be imported before configPlugin, so we cannot get gloal config when component is created
+    getLayout () {
+      if (typeof window !== 'undefined') {
+        if (window.VUX_CONFIG && window.VUX_CONFIG.$layout === 'VIEW_BOX') {
+          return 'VIEW_BOX'
+        }
+      }
+      return ''
+    },
+    addModalClassName () {
+      if (typeof this.shouldPreventScroll === 'function' && this.shouldPreventScroll()) {
+        return
+      }
+      dom.addClass(document.body, BODY_CLASS_NAME)
+    },
+    removeModalClassName () {
+      dom.removeClass(document.body, BODY_CLASS_NAME)
     }
   },
-  methods: {
-    doOpen() {
-      if (!this.bodyOverflow) {
-        this.bodyPaddingRight = document.body.style.paddingRight
-        this.bodyOverflow = document.body.style.overflow
-      }
-      scrollBarWidth = getScrollBarWidth()
-      let bodyHasOverflow = document.documentElement.clientHeight < document.body.scrollHeight
-      if (scrollBarWidth > 0 && bodyHasOverflow) {
-        document.body.style.paddingRight = scrollBarWidth + 'px'
-      }
-      document.body.style.overflow = 'hidden'
-      if (getComputedStyle(this.$el).position === 'static') {
-        this.$el.style.position = 'absolute'
-      }
-    },
-    doClose() {
-      setTimeout(() => {
-        if (this.modal && this.bodyOverflow !== 'hidden') {
-          document.body.style.overflow = this.bodyOverflow
-          document.body.style.paddingRight = this.bodyPaddingRight
-        }
-        this.bodyOverflow = null
-        this.bodyPaddingRight = null
-      }, 200)
-    }
+  beforeDestroy () {
+    this.removeModalClassName()
+  },
+  deactivated () {
+    this.removeModalClassName()
   }
 }
